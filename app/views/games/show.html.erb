@@ -1,0 +1,11 @@
+<h1><%= @game.name %></h1>
+
+<p><%= @game.summary %></h1>
+
+<ul>
+  <li>Release date: <%= @game.release_date %></li>
+  <li>Rating: <%= @game.rating %></li>
+  <% if !@game.parent.nil? %>
+    <li>Expansion for <%= link_to "#{@game.parent.name}", @game.parent.name %></li>
+  <% end %>
+</ul>
