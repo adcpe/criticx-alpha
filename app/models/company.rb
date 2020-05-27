@@ -1,8 +1,6 @@
 class Company < ApplicationRecord
   validates :name, :country, allow_blank: false
-  validates :name, uniqueness: trueOS: Arch Linux x86_64 
-                `+oooo:                  Host: UX330UAK 1.0 
-
+  validates :name, uniqueness: true
 
   has_many :involved_companies
   has_many :games, through: :involved_companies
