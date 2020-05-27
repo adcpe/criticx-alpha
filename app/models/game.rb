@@ -1,11 +1,11 @@
 class Game < ApplicationRecord
-  validates :name, :category, allow_blank: false
+  validates :name, :category, presence: true
   validates :name, uniqueness: true
   validates :rating, numericality: {
     greater_than_or_equal_to: 0,
     less_than_or_equal_to: 100,
   }
-  validates :validate_game_id
+  validate :validate_game_id
 
   has_many :involved_companies
   has_many :companies, through: :involved_companies

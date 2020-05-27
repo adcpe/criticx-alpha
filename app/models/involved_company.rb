@@ -1,5 +1,5 @@
 class InvolvedCompany < ApplicationRecord
-  validates :developer, :publisher, allow_blank: false
+  validates :developer, :publisher, presence: true
 
   belongs_to :company
   belongs_to :game
