@@ -5,6 +5,7 @@ class Game < ApplicationRecord
     greater_than_or_equal_to: 0,
     less_than_or_equal_to: 100,
   }
+  validates :validate_game_id
 
   has_many :involved_companies
   has_many :companies, through: :involved_companies
@@ -18,4 +19,12 @@ class Game < ApplicationRecord
   has_many :reviews, as: :reviewable
 
   enum category: { main_game: 0, expansion: 1 }
+
+  private
+
+  def validate_game_id
+    if category == 'expansion' && parent.nil?
+      errors.add(:game_id, 'parent game not found')
+    end
+  end
 end
