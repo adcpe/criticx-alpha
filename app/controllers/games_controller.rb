@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show]
+  before_action :set_game, only: [:show, :edit, :update]
 
   def index
     @games = Game.all
@@ -11,6 +11,19 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+  end
+
+  def edit
+    @game
+  end
+
+  def update
+    @game
+    if @game.update(game_params)
+      redirect_to(@game)
+    else
+      render :edit
+    end
   end
 
   def create
@@ -29,6 +42,6 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:name,:summary,:release_date, :category, :rating, :parent_id)
+    params.require(:game).permit(:name, :summary, :release_date, :category, :rating, :parent_id)
   end
 end
