@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show]
+  before_action :set_company, only: [:show, :edit, :update]
 
   def index
     @companies = Company.all
@@ -11,6 +11,19 @@ class CompaniesController < ApplicationController
 
   def new
     @company = Company.new
+  end
+
+  def edit
+    @company
+  end
+
+  def update
+    @company
+    if @company.update(company_params)
+      redirect_to(@company)
+    else
+      render :new
+    end
   end
 
   def create
