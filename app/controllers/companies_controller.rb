@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show, :edit, :update]
+  before_action :set_company, only: [:show, :edit, :update, :destroy]
 
   def index
     @companies = Company.all
@@ -33,6 +33,11 @@ class CompaniesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @companies.destroy
+    redirect_to company_path
   end
 
   private
