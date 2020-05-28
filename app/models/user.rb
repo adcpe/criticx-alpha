@@ -1,10 +1,12 @@
 require 'time_difference'
 
 class User < ApplicationRecord
-  validates :username, :email, allow_blank: false
+  validates :username, :email, presence: true
   validates :check_user_age
 
   has_many :reviews
+
+  has_secure_password
 
   private
 

@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-  validates :title, :body, allow_blank: false
+  validates :title, :body, presence: true
   validates :title, length: { maximum: 40 }, uniqueness: true
 
   belongs_to :user
