@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show]
+  before_action :set_game, only: [:show, :edit, :update]
 
   def index
     @games = Game.all
@@ -13,6 +13,19 @@ class GamesController < ApplicationController
     @game = Game.new
   end
 
+  def edit
+    @game
+  end
+
+  def update
+    @game
+    if @game.update(game_params)
+      redirect_to(@game)
+    else
+      render :edit
+    end
+  end
+
   def create
     @game = Game.new(game_params)
     if @game.save
@@ -20,6 +33,10 @@ class GamesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @game
   end
 
   private
