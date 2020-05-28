@@ -35,10 +35,6 @@ class GamesController < ApplicationController
     end
   end
 
-  def edit
-    @game
-  end
-
   private
 
   def set_game
@@ -46,6 +42,6 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:name,:summary,:release_date, :category, :rating, :parent_id)
+    params.require(:game).permit(:name, :summary, :release_date, :category, :rating, :parent_id)
   end
 end
