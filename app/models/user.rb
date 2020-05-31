@@ -2,7 +2,7 @@ require 'time_difference'
 
 class User < ApplicationRecord
   validates :username, :email, presence: true
-  validates :check_user_age
+  validate :check_user_age
 
   has_many :reviews
 
