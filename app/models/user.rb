@@ -1,8 +1,12 @@
 require 'time_difference'
 
 class User < ApplicationRecord
-  validates :username, :email, allow_blank: false
-  validates :check_user_age
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+  validates :username, :email, presence: true
+  validate :check_user_age
 
   has_many :reviews
 
