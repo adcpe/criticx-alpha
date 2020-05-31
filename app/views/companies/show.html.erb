@@ -8,3 +8,4 @@
 </ul>
 
 <%= link_to "Back to Companies", companies_path %>
+<%= link_to "Delete this Company", companies_path(company), method: :delete, data: { confirm: "Do you really want to delete this company?" } %>

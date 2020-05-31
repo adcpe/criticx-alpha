@@ -10,4 +10,5 @@
   <% end %>
 </ul>
 
-<p><%= link_to "Back to Games", games_path %></p>
+<%= link_to "Back to Games", games_path %>
+<%= link_to "Delete Game", game_path(@game), method: :delete, data: { confirm: "Do you really want to delete this game?" } %>
