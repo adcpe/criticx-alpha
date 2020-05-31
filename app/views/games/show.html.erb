@@ -6,7 +6,7 @@
   <li>Release date: <%= @game.release_date %></li>
   <li>Rating: <%= @game.rating %></li>
   <% if !@game.parent.nil? %>
-    <li>Expansion for <%= link_to "#{@game.parent.name}", @game.parent.name %></li>
+    <li>Expansion for <%= link_to "#{@game.parent.name}", @game.parent %></li>
   <% end %>
 </ul>
 
